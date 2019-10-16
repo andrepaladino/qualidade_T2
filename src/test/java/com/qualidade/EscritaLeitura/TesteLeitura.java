@@ -1,5 +1,9 @@
 package com.qualidade.EscritaLeitura;
 
+import static org.junit.Assert.assertEquals;
+
+import java.io.FileNotFoundException;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -7,7 +11,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class TesteEscrita 
+public class TesteLeitura
     extends TestCase
 {
     /**
@@ -15,7 +19,7 @@ public class TesteEscrita
      *
      * @param testName name of the test case
      */
-    public TesteEscrita( String testName )
+    public TesteLeitura( String testName )
     {
         super( testName );
     }
@@ -30,14 +34,15 @@ public class TesteEscrita
 
     /**
      * Rigourous Test :-)
+     * @throws FileNotFoundException 
+     * 
      */
-    public void testApp()
+    @org.junit.Test(expected = FileNotFoundException.class)
+    public void ValidaLeitura() throws FileNotFoundException 
     {
-        Escrita escrita = new Escrita();
-
-        escrita.escreveArquivo("potencias.txt");
-
-        assertTrue(escrita.getArquivo().exists());
-        assertTrue(escrita.getArquivo().length() > 0);
+    	Leitura leitura = new Leitura();
+    	
+    	leitura.getSomatorio("batata.txt");
+    	
     }
 }
