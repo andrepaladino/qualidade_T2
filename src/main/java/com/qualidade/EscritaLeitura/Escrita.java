@@ -37,7 +37,7 @@ public class Escrita {
     
     public double calculaPotencia(int n, int p) {
     	
-    	return Math.pow(n, p);
+    	return Math.pow(p, n);
     	
     }
 
